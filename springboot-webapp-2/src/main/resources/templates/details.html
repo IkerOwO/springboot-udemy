@@ -1,0 +1,21 @@
+<!-- Plantilla indicada en el return del GetMapping de UserController -->
+<!DOCTYPE html>
+<!-- Ponemos en el xmlns:th la ruta a thymeleaf -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <!-- Indicamos que le queremos pasar desde el Model creado en UserController con th: -->
+        <h1 th:text="${title}"></h1>
+        <ul>
+            <li th:text="${user.name}"></li>
+            <li th:text="${user.lastname}"></li>
+            <li th:if="${user.email}" th:text="${user.email}"></li>
+            <li th:if="${user.email == null}" th:text="${'no tiene email'}"></li>
+        </ul>
+    <!-- Ruta con <a> -->
+    <a th:href="@{/listThymeleaf}">Ver listado</a>
+        </br>
+        <a th:href="@{/api/params/foo?message=Hola que tal :3}">Ver listado</a>
+        <a th:href="@{/api/params/bar(text='Hola que tal :3', code=123123)}">Ver bar mix 2 parms</a>
+        <a th:href="@{/api/var/vaz/Hola mundo}">Ver vaz path variable</a>
+    </body>
+</html>
