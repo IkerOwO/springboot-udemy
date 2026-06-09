@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collections;
 import java.util.List;
 
-@Repository
+@Repository("productFoo")
 public class ProductRepositoryFoo implements IProductRepository{
     @Override
     public List<Product> findAll() {

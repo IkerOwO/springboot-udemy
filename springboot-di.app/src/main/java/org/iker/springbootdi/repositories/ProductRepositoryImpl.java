@@ -1,12 +1,21 @@
 package org.iker.springbootdi.repositories;
 
 import org.iker.springbootdi.models.Product;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
+
 import java.util.Arrays;
 import java.util.List;
 
 // NO se utilizan clases, se utilizan Interfaces para los repositories
-@Repository
+
+// Primary indica que tiene que inicializar este repositorio primero
+@Primary
+@SessionScope // Dura varios requests y al cerrar el navegador se rompe los datos de la sesion
+//@RequestScope
+@Repository("productList")
 public class ProductRepositoryImpl implements IProductRepository{
 
     private List<Product> data;
